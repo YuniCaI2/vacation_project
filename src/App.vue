@@ -1,25 +1,13 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+
 import Tabbar from './components/Tabbar.vue';
 import LabelBar from './components/LabelBar.vue'
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
-  <Tabbar></Tabbar>
   <RouterView />
+  <Tabbar></Tabbar>
 </template>
 
 <style scoped>
