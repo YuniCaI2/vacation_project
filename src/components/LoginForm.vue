@@ -1,15 +1,46 @@
 <template>
-    <form action="">
-        您的身份:学生<input type="radio" name="gender"checked>老师<input type="radio" name="gender"><br>
-        所在学校：<input type="text" placeholder="请输入所在学校"><br>
-        对应班级：<input type="text" placeholder="请输入所在班级"><br>
-        账号：<input type="text" placeholder="请输入账号"><br>
-        密码：<input type="password" placeholder="请输入密码"><br>
-        确认密码：<input type="password" placeholder="请输入密码"><br>
-        <button value="提交"></button>
-        
-
-
-        <input type="radio" name="">
-    </form>
+    <van-form @submit="onSubmit">
+  <van-cell-group inset>
+    <van-field
+      v-model="username"
+      name="用户名"
+      label="用户名"
+      placeholder="用户名"
+      :rules="[{ required: true, message: '请填写用户名' }]"
+    />
+    <van-field
+      v-model="password"
+      type="password"
+      name="密码"
+      label="密码"
+      placeholder="密码"
+      :rules="[{ required: true, message: '请填写密码' }]"
+    />
+  </van-cell-group>
+  <div style="margin: 16px;">
+    <van-button round block type="primary" native-type="submit">
+      提交
+    </van-button>
+  </div>
+</van-form>
 </template>
+
+<script>
+import { ref } from 'vue';
+
+export default {
+  setup() {
+    const username = ref('');
+    const password = ref('');
+    const onSubmit = (values) => {
+      console.log('submit', values);
+    };
+
+    return {
+      username,
+      password,
+      onSubmit,
+    };
+  },
+};
+</script>
