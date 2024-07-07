@@ -1,4 +1,4 @@
-<script>
+<script>//test
 import { ref } from 'vue';
 
 export default {
