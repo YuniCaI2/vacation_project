@@ -1,3 +1,4 @@
+<!-- test -->
 <template>
     <van-form @submit="onSubmit">
   <van-cell-group inset>
