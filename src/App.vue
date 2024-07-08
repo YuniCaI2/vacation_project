@@ -3,6 +3,7 @@ import { RouterLink, RouterView } from 'vue-router'
 
 import Tabbar from './components/Tabbar.vue';
 import LabelBar from './components/LabelBar.vue'
+import Article from './components/Article.vue';
 </script>
 
 <template>
@@ -10,7 +11,7 @@ import LabelBar from './components/LabelBar.vue'
   <Tabbar></Tabbar>
 </template>
 
-<style scoped>
+<!-- <style scoped>
 header {
   line-height: 1.5;
   max-height: 100vh;
@@ -72,4 +73,4 @@ nav a:first-of-type {
     margin-top: 1rem;
   }
 }
-</style>
+</style> -->
