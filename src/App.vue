@@ -11,7 +11,6 @@ import Article from './components/Article.vue';
   <Tabbar></Tabbar>
 </template>
 
-<style scoped>
 <!-- <style scoped>
 header {
   line-height: 1.5;
@@ -74,5 +73,4 @@ nav a:first-of-type {
     margin-top: 1rem;
   }
 }
-</style>
 </style> -->
