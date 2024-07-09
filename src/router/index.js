@@ -3,6 +3,9 @@ import HomeView from '../views/HomeView.vue'
 import ReleaseView from '@/views/ReleaseView.vue'
 import ArticleView from '@/views/ArticleView.vue'
 import ReactionView from '@/views/ReactionView.vue'
+import Personal from '@/components/Personal.vue'
+import Login from '@/views/Login.vue'
+import Register from '@/views/Register.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -36,6 +39,21 @@ const router = createRouter({
       name: 'reaction',
       //加入文学互动页面的路由
       component: ReactionView
+    },
+    {
+      path:'/personal',
+      name:'personal',
+      component:Personal
+    },
+    {
+      path:'/login',
+      name:'login',
+      component:Login
+    },
+    {
+      path:'/register',
+      name:'register',
+      component:Register
     }
   ]
 })

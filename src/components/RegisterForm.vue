@@ -1,4 +1,6 @@
 <template>
+  <div >
+  <nav-bar-before></nav-bar-before>
 <van-cell-group inset>
   <!-- 输入任意文本 -->
   <van-field 
@@ -6,6 +8,13 @@
     label="用户名"
     :rules="[{required:(username!=''?false:true)}]"
     placeholder="请输入用户名"
+  />
+    <!-- 输入邮箱 -->
+    <van-field 
+    v-model="mail"
+    label="邮箱"
+    :rules="[{required:(username!=''?false:true)}]"
+    placeholder="请输入邮箱"
   />
   <!-- 输入手机号，调起手机号键盘 -->
   <van-field 
@@ -15,17 +24,7 @@
     label="手机号" 
     placeholder="请输入手机号"
   />
-  <van-field
-    v-model="sms"
-    center
-    clearable
-    label="短信验证码"
-    placeholder="请输入短信验证码"
-  >
-    <template #button>
-      <van-button size="small" type="primary">发送验证码</van-button>
-    </template>
-  </van-field>
+
 
   <!-- 输入密码 -->
   <van-field 
@@ -34,20 +33,34 @@
     type="password" 
     label="密码" />
 </van-cell-group>
+<div style="margin: 16px;">
+    <van-button round block type="primary" native-type="submit">
+     注册
+    </van-button>
+  </div>
+<van-divider />
+  </div>
 
 </template>
 
 <script>
 import { ref } from 'vue';
-
+import NavBarBefore from './NavBarBefore.vue';
+import { showNotify } from 'vant';
+showNotify({ type: 'success', message: '通知内容' })
 export default {
+  components:{
+     NavBarBefore
+  },
+
   setup() {
     const username = ref('');
     const tel = ref('');
-    const sms = ref('');
+    const mail = ref('');
     const password = ref('');
 
-    return { username,tel, sms, password };
+    return { username,tel, mail, password };
   },
 };
+
 </script>

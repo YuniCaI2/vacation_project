@@ -1,7 +1,38 @@
-<!-- test -->
+<script>
+import { ref } from 'vue';
+import NavBarBefore from './NavBarBefore.vue';
+export default {
+  components:{
+     NavBarBefore
+  },
+  setup() {
+    const username = ref('');
+    const password = ref('');
+    const onSubmit = (values) => {
+      console.log('submit', values);
+    };
+
+    return {
+      username,
+      password,
+      onSubmit,
+    };
+  },
+  methods:{
+    Login(){
+      this.$store.commit('Login')
+    }
+  }
+};
+</script>
+<style scoped>
+
+</style>
 <template>
-    <van-form @submit="onSubmit">
-  <van-cell-group inset>
+<van-form @submit="onSubmit">
+  <NavBarBefore title="登录"></NavBarBefore>
+  <div >
+  <van-cell-group inset >
     <van-field
       v-model="username"
       name="用户名"
@@ -20,28 +51,30 @@
   </van-cell-group>
   <div style="margin: 16px;">
     <van-button round block type="primary" native-type="submit">
-      提交
+      登入
     </van-button>
   </div>
+</div>
+<div class="wrap">
+  <p class="wrap1">忘记密码</p>
+  <router-link to="/register"><p class="wrap2">新用户注册</p></router-link>
+</div>
 </van-form>
 </template>
 
-<script>
-import { ref } from 'vue';
+<style scoped>
+.wrap{
+  display:-webkit-flex;
+  display: flex;
+  -webkit-justify-content:space-around;
+  justify-content: space-around;
+  height: 32px;
 
-export default {
-  setup() {
-    const username = ref('');
-    const password = ref('');
-    const onSubmit = (values) => {
-      console.log('submit', values);
-    };
+}
+.wrap1{
+width: 100px;
+}
 
-    return {
-      username,
-      password,
-      onSubmit,
-    };
-  },
-};
-</script>
+
+</style>
+
