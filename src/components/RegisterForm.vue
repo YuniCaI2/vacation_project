@@ -17,14 +17,14 @@
     placeholder="请输入邮箱"
   />
   <!-- 输入手机号，调起手机号键盘 -->
-  <van-field 
-    v-model="tel" 
-    :rules="[{required:(tel!=''?false:true)}]"
-    type="tel" 
-    label="手机号" 
-    placeholder="请输入手机号"
   />
-
+    <!-- 输入邮箱 -->
+    <van-field 
+    v-model="birthday"
+    label="生日"
+    :rules="[{required:(username!=''?false:true)}]"
+    placeholder="请输入生日"
+  />
 
   <!-- 输入密码 -->
   <van-field 
@@ -55,11 +55,11 @@ export default {
 
   setup() {
     const username = ref('');
-    const tel = ref('');
+    const birthday = ref('');
     const mail = ref('');
     const password = ref('');
 
-    return { username,tel, mail, password };
+    return { username,birthday, mail, password };
   },
 };
 
