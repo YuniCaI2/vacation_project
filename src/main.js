@@ -8,6 +8,8 @@ import {Tabbar,TabbarItem,Tab,Tabs,Search,Form, Field, CellGroup, NavBar,Uploade
 =======
 import {Tabbar,TabbarItem,Tab,Tabs,Search,Form, Field, CellGroup, NavBar,Button,Cell,Icon,Uploader} from 'vant'
 >>>>>>> fc3f3c065e100791b1006cbc57eb636ec80b0569
+import {Tabbar,TabbarItem,Tab,Tabs,Search,Form, Field, CellGroup, NavBar,Uploader,Icon,Divider,Notify,Cell,Button} from 'vant'
+
 import 'vant/lib/index.css'
 import { Image as VanImage } from 'vant';
 import { Button } from 'vant';
