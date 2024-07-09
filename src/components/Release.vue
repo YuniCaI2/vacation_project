@@ -1,7 +1,10 @@
 <script>//test
 import { ref } from 'vue';
+
+
 export default {
   setup() {
+    const article = '';
     const onSubmit = (values) => {
       console.log('submit', values);
     };
@@ -22,6 +25,7 @@ export default {
 <van-form @submit="onSubmit">
   <van-cell-group inset>
     <van-field name="uploader" label="文件上传">
+    <van-field name="uploader" label="图片上传">
          <template #input>
             <van-uploader v-model="value" />
         </template>
