@@ -1,6 +1,7 @@
 <template>
 <div v-if="iflogin" class="box">
     <div  class="box1">
+        <van-icon name="setting-o" size="32" class="set"/>
         <img src="../Cover@3x.png"alt="" class="box-img">
         <div class="box-profile">
             <van-image
@@ -16,10 +17,21 @@
             112
         </p>
         </div>
+        <div class="box-tool">
+            <div class="box-tool-box">
+                <p class="box-tool-box-num">11</p>
+                <p class="box-tool-box-text">关注</p>
+            </div>
+            <div class="box-tool-box">
+                <p class="box-tool-box-num">0</p>
+                <p class="box-tool-box-text">粉丝</p>
+            </div>
+            <div class="box-tool-box">
+                <p class="box-tool-box-num">7</p>
+                <p class="box-tool-box-text">获赞</p>
+            </div>
+        </div>
         
-        <p class="box-tel">
-            18911023266
-        </p>
 
     </div>
 
@@ -27,14 +39,17 @@
         <div class="box2-text1">个人信息</div>
         <div class="box2-text2">备忘录</div>
         <div class="box2-text3">每日任务</div>
-        <div class="box2-text4">设置</div>
-        <div class="box2-text5">退出登入</div>
+        <div class="box2-text4">我的图文</div>
+        <div class="box2-text5">成就</div>
+        <div class="box2-text6">退出登录</div>
+
 
         <div class="box2-bark1"><van-icon name="arrow" /></div>
         <div class="box2-bark2"><van-icon name="arrow" /></div>
         <div class="box2-bark3"><van-icon name="arrow" /></div>
         <div class="box2-bark4"><van-icon name="arrow" /></div>
         <div class="box2-bark5"><van-icon name="arrow" /></div>
+        <div class="box2-bark6"><van-icon name="arrow" /></div>
 
     </div>
 </div>
@@ -90,6 +105,12 @@ export default {
 .box{
     position: relative;
 }
+.set{
+    position: absolute;
+    top: 5.3%;
+    right: 5.3%;
+
+}
 .box-img{
     height: 149px;
     width: 100%;
@@ -97,9 +118,9 @@ export default {
 }
 .box1
 {
-    height: 344px;
+    height: 360px;
     width: 100%;
-    background-color: #fff;
+    background-color: #fcfcfc;
 }
 .box-profile
 {
@@ -124,9 +145,39 @@ width: 100%;
     /* margin-left: -30px; */
     font-family: PingFangSC-Regular;
     font-size: 20px;
-    color: #203152;
+    color:  #7C8698;
     letter-spacing: 0;
 }
+.box-tool
+{
+  display:-webkit-flex;
+  display: flex;
+  -webkit-justify-content:space-around;
+  justify-content: space-around;
+  height:60px;
+   
+}
+.box-tool-box
+{
+    width: 100px;
+}
+.box-tool-box-num
+{
+    text-align: center;
+    font-family: PingFangSC-Regular;
+    font-size:20px;
+    color:  #7C8698;
+    letter-spacing: 0;
+}
+.box-tool-box-text
+{
+    text-align: center;
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color:  #7C8698;
+    letter-spacing: 0;
+}
+
 .box-tel
 {
  
@@ -140,7 +191,7 @@ width: 100%;
 .box2-text1
 {
     position: absolute;
-    top:344px;
+    top:370px;
     left:5.3%;
     font-family: PingFangSC-Regular;
     font-size: 14px;
@@ -149,7 +200,7 @@ width: 100%;
 .box2-text2
 {
     position: absolute;
-    top:384px;
+    top:410px;
     left:5.3%;
     font-family: PingFangSC-Regular;
     font-size: 14px;
@@ -158,7 +209,7 @@ width: 100%;
 .box2-text3
 {
     position: absolute;
-    top:424px;
+    top:450px;
     left:5.3%;
     font-family: PingFangSC-Regular;
     font-size: 14px;
@@ -167,7 +218,7 @@ width: 100%;
 .box2-text4
 {
     position: absolute;
-    top:464px;
+    top:490px;
     left:5.3%;
     font-family: PingFangSC-Regular;
     font-size: 14px;
@@ -176,41 +227,55 @@ width: 100%;
 .box2-text5
 {
     position: absolute;
-    top:504px;
+    top:530px;
     left:5.3%;
     font-family: PingFangSC-Regular;
     font-size: 14px;
     color: #262626;
 }
-
+.box2-text6
+{
+    position: absolute;
+    top:570px;
+    left:5.3%;
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #262626;
+}
 .box2-bark1
 {
     position: absolute;
-    top:348px;
+    top:373px;
     right:5.3%;
 }
 .box2-bark2
 {
     position: absolute;
-    top:388px;
+    top:413px;
     right:5.3%;
 }
 .box2-bark3
 {
     position: absolute;
-    top:428px;
+    top:453px;
     right:5.3%;
 }
 .box2-bark4
 {
     position: absolute;
-    top:468px;
+    top:493px;
     right:5.3%;
 }
 .box2-bark5
 {
     position: absolute;
-    top:508px;
+    top:533px;
+    right:5.3%;
+}
+.box2-bark6
+{
+    position: absolute;
+    top:573px;
     right:5.3%;
 }
 </style>
