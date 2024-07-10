@@ -4,7 +4,8 @@ import { ref } from 'vue';
 
 export default {
   setup() {
-    const article = '';
+    const article = ref('');
+    const title=ref('');
     const onSubmit = (values) => {
       console.log('submit', values);
     };
@@ -14,7 +15,8 @@ export default {
     return {
       article,
       onSubmit,
-      value
+      value,
+      title
     };
   },
 };
@@ -29,20 +31,48 @@ export default {
         </template>
     </van-field>
     <van-field
-      v-model="article"
+      v-model="title"
       type="article"
       name="文章"
-      label="文章"
-      placeholder="文章"
-      :rules="[{ required: true, message: '请书写文章' }]"
+      label="标题/主题"
+      placeholder="若无空出本栏即可"
+      
     />
+    <van-cell-group inset>
+  <van-field
+    v-model="article"
+    rows="1"
+    autosize
+    label="正文"
+    type="textarea"
+    placeholder="请输入文章"
+    :rules="[{ required: true, message: '请书写文章' }]"
+  />
+</van-cell-group>
   </van-cell-group>
   <div style="margin: 16px;">
     <van-button round block type="primary" native-type="submit">
       上传
     </van-button>
   </div>
+  <div class="wrap">
+  <p class="wrap1">优秀作品管理</p>
+  <router-link to="/register"><p class="wrap2">任务完成情况</p></router-link>
+</div>
 </van-form>
 
 
 </template>
+<style scoped>
+.wrap{
+  display:-webkit-flex;
+  display: flex;
+  -webkit-justify-content:space-around;
+  justify-content: space-around;
+  height: 32px;
+
+}
+.wrap1{
+width: 100px;
+}
+</style>
