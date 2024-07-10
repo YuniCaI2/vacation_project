@@ -95,10 +95,12 @@ export default{
     font-size: 10px;
 }
 .imgli{
-   
-    padding: 0 0 10px 10px;
+    width: 48%;
+    /* padding: 0 0 10px 10px; */
     text-align: center;
     position: relative;
+    margin-left: 1%;
+    margin-right: 1%;
 }
 .title {
     width: 80%;
@@ -115,7 +117,7 @@ export default{
 }
 .productimg {
     text-align: center;
-    width: 97%;
+    width: 100%;
     height: 105px;
 }
 
