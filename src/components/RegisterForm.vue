@@ -1,6 +1,6 @@
 <template>
   <nav-bar-before></nav-bar-before>
-<van-form @failed="onFailed">
+<van-form @failed="onFailed" @submit="onSubmit">
 <van-cell-group inset>
   <!-- 输入任意文本 -->
   <van-field 
@@ -71,7 +71,8 @@ import { ref } from 'vue';
 import NavBarBefore from './NavBarBefore.vue';
 import { showNotify } from 'vant';
 import { closeToast, showLoadingToast } from 'vant';
-
+import axios from 'axios';
+import { useRoute } from 'vue-router';
 showNotify({ type: 'success', message: '通知内容' })
 export default {
   components:{
@@ -86,8 +87,7 @@ export default {
     const identity = ref('');
     const password = ref('');
     const schoolclass =ref('');
-
-  
+    const router = useRoute();
     const validatorSchoolClass=(val)=>{return  /^\d\d\d$/.test(val)?null:'不合法请重新输入'};
     const validatorIdentity=(val)=>{return   /^(老|学)(师|生)$/.test(val)?null:'不合法请重新输入'};
     const validatoremail=(val)=>{return   /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(val)?null:'不合法请重新输入'};
@@ -100,6 +100,30 @@ export default {
 // const validateIdentity = (value) => {
 //   return /^(老|学)(师|生)$/.test(value) ? Promise.resolve() : Promise.reject('请输入老师或学生');
 // };
+const onSubmit = async () => {
+  try {
+    const response = await axios.post('/api/register', {
+      username: username.value,
+      password: password.value,
+      birthdate: birthdate.value,
+      sex: sex.value,
+      email_id: email_id.value,
+      identity: identity.value,
+      schoolclass: schoolclass.value
+    });
+
+    if(response.status === 201){
+      console.log(response.data.message);
+      router.push('/login');  // Assuming you have a route setup for login
+    }
+  } catch (error) {
+    console.error('Error submitting registration:', error);
+    alert('注册过程中出现错误，请稍后再试。');
+  }
+};
+
+
+
 const onFailed = (errorInfo) => {
   console.log('failed', errorInfo);
   // 遍历所有的错误信息并显示第一条错误信息
@@ -111,7 +135,7 @@ const onFailed = (errorInfo) => {
   }
 };
 
-    return { username,birthdate, email_id,sex, identity,password,schoolclass ,validatorSchoolClass,validatorIdentity,validatoremail,validatorBirthdate,validatorsex,onFailed};
+    return { username,birthdate, email_id,sex, identity,password,schoolclass ,validatorSchoolClass,validatorIdentity,validatoremail,validatorBirthdate,validatorsex,onFailed,onSubmit};
   },
 };
 

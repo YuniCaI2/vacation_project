@@ -1,24 +1,46 @@
-<script>//test
+<script>
+import axios from 'axios';
 import { ref } from 'vue';
-
-
+import { useRouter } from 'vue-router';
 export default {
   setup() {
     const article = ref('');
-    const title=ref('');
-    const onSubmit = (values) => {
-      console.log('submit', values);
+    const title = ref('');
+    const value = ref([]);
+    const router = useRouter();
+    const onSubmit = async () => {
+      const formData = new FormData();
+      formData.append('title', title.value);
+      formData.append('article', article.value);
+      value.value.forEach(file => {
+        formData.append('image', file.file);
+      });
+
+      try {
+        const response = await axios.post('/api/upload', formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          }
+        });
+        console.log('Upload successful', response);
+        // 可以在这里处理上传成功后的逻辑，比如重置表单
+        article.value = '';
+        title.value = '';
+        value.value = [];
+        router.push('/reaction')
+      } catch (error) {
+        console.error('Error uploading', error);
+        // 可以在这里处理上传失败后的逻辑
+      }
     };
-     const value = ref([
-      { url: '' },
-    ]);
+
     return {
       article,
-      onSubmit,
+      title,
       value,
-      title
+      onSubmit
     };
-  },
+  }
 };
 </script>
 
