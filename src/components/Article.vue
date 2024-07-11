@@ -32,6 +32,7 @@ export default {
 <template>
     <div class="container">
         <ul>
+            <router-link to="articledetail">
             <li v-for="(item,index) in items" :key="index" class="imgli">
                 <img :src="item.url" class="productimg">
                 
@@ -62,6 +63,7 @@ export default {
                 </div>
             </div>
             </li>
+        </router-link>
         </ul>
     </div>
 </template>

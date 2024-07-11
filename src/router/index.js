@@ -8,6 +8,7 @@ import Login from '@/views/Login.vue'
 import Register from '@/views/Register.vue'
 import Admiration from '@/components/Admiration.vue'
 import Others from '../components/OthersDetailPages.vue'
+import ArtticleDetailPages from '@/components/ArtticleDetailPages.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -66,7 +67,12 @@ const router = createRouter({
       path:'/others',
       name:'others',
       component:Others
-    }
+    },
+    {
+      path:'/articledetail',
+      name:'articledetail',
+      component:ArtticleDetailPages
+    },
   ]
 })
 

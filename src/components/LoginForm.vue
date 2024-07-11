@@ -4,6 +4,9 @@ import { useStore } from 'vuex';
 import NavBarBefore from './NavBarBefore.vue';
 import { useRouter } from 'vue-router';
 export default {
+  components:{
+     NavBarBefore
+  },
   setup() {
     const store = useStore();
     const username = ref('');
