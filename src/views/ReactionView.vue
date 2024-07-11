@@ -18,7 +18,7 @@ function toggleSearchBar() {
         <div class="margin">
         <SearchBar v-show="isSearchBarVisible" ></SearchBar>
     <div class="top">
-        <img src="../../photo-list/老师.png" class="top-icon">
+        <img src="../photo-list/老师.png" class="top-icon">
         <LabelBar label_1="文章" label_2="发布" style="width: 78%;" ></LabelBar>
         <div class="top-icon"  @click="toggleSearchBar"><van-icon name="search" size="44" /></div>
     </div>
