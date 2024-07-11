@@ -11,12 +11,12 @@
                 <p class="title">{{ item.title }}</p>
                 <img 
                 v-if="iflike==false"
-                src="../../photo-list/爱心.png" class="img1"
+                src="../photo-list/爱心.png" class="img1"
                 @click="toggleLikeStatus(iflike)">
                 
                 <img 
                 v-if="iflike==true"
-                src="../../photo-list/爱心0.png" class="img1"
+                src="../photo-list/爱心0.png" class="img1"
                 @click="toggleLikeStatus(iflike)">
                 
             </li>

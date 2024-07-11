@@ -52,12 +52,12 @@ export default {
                 <div>
                     <img 
                 v-if="iflike==false"
-                src="../../photo-list/爱心.png" class="imglike"
+                src="../photo-list/爱心.png" class="imglike"
                 @click="toggleLikeStatus(iflike)">
                 
                 <img 
                 v-if="iflike==true"
-                src="../../photo-list/爱心0.png" class="imglike"
+                src="../photo-list/爱心0.png" class="imglike"
                 @click="toggleLikeStatus(iflike)">
                 </div>
             </div>

@@ -6,6 +6,8 @@ import ReactionView from '@/views/ReactionView.vue'
 import Personal from '@/components/Personal.vue'
 import Login from '@/views/Login.vue'
 import Register from '@/views/Register.vue'
+import Admiration from '@/components/Admiration.vue'
+import Others from '../components/OthersDetailPages.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -54,6 +56,16 @@ const router = createRouter({
       path:'/register',
       name:'register',
       component:Register
+    },
+    {
+      path:'/admiration',
+      name:'admiration',
+      component:Admiration
+    },
+    {
+      path:'/others',
+      name:'others',
+      component:Others
     }
   ]
 })
