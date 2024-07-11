@@ -14,20 +14,20 @@
         <div style="height: 85px;"></div>
         <div class="box-name">
             <p  style="text-align: center;">
-            112
+            {{ username }}
         </p>
         </div>
         <div class="box-tool">
             <div class="box-tool-box">
-                <p class="box-tool-box-num">11</p>
+                <p class="box-tool-box-num">{{ following_count }}</p>
                 <p class="box-tool-box-text">关注</p>
             </div>
             <div class="box-tool-box">
-                <p class="box-tool-box-num">0</p>
+                <p class="box-tool-box-num">{{ followers_count }}</p>
                 <p class="box-tool-box-text">粉丝</p>
             </div>
             <div class="box-tool-box">
-                <p class="box-tool-box-num">7</p>
+                <p class="box-tool-box-num">{{ liked }}</p>
                 <p class="box-tool-box-text">获赞</p>
             </div>
         </div>
@@ -89,13 +89,24 @@ export default {
     // 使用 useStore 钩子来访问 Vuex store
     const store = useStore();
     const user_img = ref('');
+    const followers_count = ref('');
+    const following_count = ref('');
+    const liked = ref('');
+    const username = ref('');
     // 从 store 中获取你需要的状态值
     const iflogin = store.state.iflogin?true:false;
     console.log(iflogin)
     if (iflogin)
   {
     user_img.value = '/api/user_image';
-
+    axios.get('/api/get_user_active_info')
+    .then(response =>{
+        following_count.value = response.data.following_count;
+        followers_count.value = response.data.followers_count;
+        liked.value = response.data.liked;
+        username.value = response.data.username;
+        // console.log(followering_count.value)
+    })
     // axios.get('/api/user_image',{
     //     withCredentials: true
     // })
@@ -110,7 +121,11 @@ export default {
     return {
       // 你可以在这里使用 iflogin 作为组件的数据属性
       iflogin,
-      user_img
+      user_img,
+      following_count,
+      followers_count,
+      liked,
+      username
     };
   },
   // 你可以在这里定义其他选项，如 methods、computed、watch 等

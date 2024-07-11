@@ -8,6 +8,7 @@ export default {
     const title = ref('');
     const value = ref([]);
     const router = useRouter();
+    const flag = ref('')
     const onSubmit = async () => {
       const formData = new FormData();
       formData.append('title', title.value);
@@ -28,8 +29,10 @@ export default {
         title.value = '';
         value.value = [];
         router.push('/reaction')
+        flag.value = 1;
       } catch (error) {
         console.error('Error uploading', error);
+        flag.value = 0;
         // 可以在这里处理上传失败后的逻辑
       }
     };
