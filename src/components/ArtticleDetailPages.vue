@@ -1,8 +1,40 @@
 <script>
 import share from './share.vue'
+import { ref } from 'vue';
+
 export default {
+  data() {
+        return {
+            iflike:false,
+            ifcollect:false,
+               }
+    },
+    methods: {
+    toggleLikeStatus1(iflike) {
+      // 切换 like 状态
+      this.iflike=!this.iflike
+      // 这里可以添加代码来处理实际的喜欢/取消喜欢的逻辑
+    },
+    toggleLikeStatus2(iflike) {
+      // 切换 like 状态
+      this.ifcollect=!this.ifcollect
+      // 这里可以添加代码来处理实际的喜欢/取消喜欢的逻辑
+    }
+  },
   components: {
   share
+  },
+  setup() {
+    const comment = ref('');
+    const onSubmit = (values) => {
+      console.log('submit', values);
+    };
+    // const text = ref('');
+    // const digit = ref('');
+    // const number = ref('');
+    // const password = ref('');
+
+    return { comment ,onSubmit};
   },
 };
 </script>
@@ -18,6 +50,28 @@ export default {
                 />
     </div>
     <div class="username">LoveTRY4545465465</div>
+    <div class="icon">
+                <img 
+                v-if="iflike==false"
+                src="../photo-list/爱心.png" class="icon1"
+                @click="toggleLikeStatus1(iflike)">
+                
+                <img 
+                v-if="iflike==true"
+                src="../photo-list/爱心0.png" class="icon1"
+                @click="toggleLikeStatus1(iflike)">
+               
+                <img 
+                v-if="ifcollect==false"
+                src="../photo-list/收藏.png" class="icon2"
+                @click="toggleLikeStatus2(ifcollect)">
+                
+                <img 
+                v-if="ifcollect==true"
+                src="../photo-list/收藏0.png" class="icon2"
+                @click="toggleLikeStatus2(ifcollect)">
+    </div>
+   
     <div class="user-like">
       <p class="user-like-text">关注+</p>
     </div>
@@ -36,17 +90,94 @@ export default {
 青春的旋律，要用“绵绵用力，久久为功”的实干精神来谱。空谈误国，实干兴邦。实干不只是一种行动，更代表着青年人的态度和精神。
 </p>
 <van-divider />
-<div class="c-box">
-  <p class="Scomment">
+<p class="Scomment">
   有1条特评
-  </p>
+</p>
+
+<div class="c-box">
+  <!-- 从这里开始读评论数据循环 -->
+  <div class="c-all">
+    <div class="c-user">
+    <van-image
+  round
+  width="24px"
+  height="24px"
+  src="https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg"
+  class="c-userimg"
+  />
+    <div class="c-username">猫老师</div>
+    </div>
+    <img src="../photo-list/100分.png"  class="c-pi">
+  <div class="c-comment1">写得很棒，继续保持！</div>
+  <van-divider />
+  </div>
+  <!-- 结束 -->
+   <div class="block">共1条评论</div>
+<!-- 从这里开始读评论数据循环 -->
+<div class="c-all">
+    <div class="c-user">
+    <van-image
+  round
+  width="24px"
+  height="24px"
+  src="https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg"
+  class="c-userimg"
+  />
+    <div class="c-username">猫老师</div>
+    </div>
+    <img src="../photo-list/100分.png"  class="c-pi">
+  <div class="c-comment2" style="color: #000">写得很棒，继续保持！写得很棒，继续保持！写得很棒，继续保持！写得很棒，继续保持！写得很棒，继续保持！写得很棒，继续保持！写得很棒，继续保持！</div>
+  <van-divider />
+ </div>
+ <!-- 结束 -->
+
+ <div class="c-all">
+ <van-cell-group inset>
+  <van-field
+    v-model="comment"
+    rows="2"
+    autosize
+    label="评论"
+    type="textarea"
+    maxlength="50"
+    placeholder="请输入评论，老师在评论开头加“#”自动转化为特评"
+    show-word-limit
+  />
+</van-cell-group>
+<div style="margin: 16px;">
+    <van-button round block type="primary" native-type="submit">
+      提交
+    </van-button>
+  </div>
+<div style="height: 20px;"></div>
 </div>
-
-<div class="box" style="background-color: #fff;">
-
+<div class="box" style="background-color: #fff;height: 60px;">
+</div>
 </div>
 </template>
 <style scoped>
+.icon
+{
+  position: absolute;
+  top: 100px;
+  right: 30%;
+  margin-right: 15px;
+  width: 80px;
+
+}
+.icon1
+{
+  float: left;
+  width: 32px;
+  height: 32px;
+}
+.icon2
+{
+  float: left;
+  width: 32px;
+  height: 32px;
+  margin-left: 15px;
+}
 .user-like
 {
 position: absolute;
@@ -126,7 +257,82 @@ top: 20px;
   font-size:25px;
   color: #ffa51e;
 }
+.c-box
+{
+  position: relative;
+  background-color: #fcfcfc;
+  width:100%;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
 
+.c-user
+{
+  height: 28px;
+  width: 100%;
+  position: relative;
+}
+.c-userimg
+{
+  margin-top: 2px;
+    left: 2px;
+    position: absolute;
+}
+.c-username
+{
+  position:absolute;
+    left: 40px;
+    width: 55%;
+    top: 0px;
+    font-size: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+.c-pi
+{
+  position: absolute;
+  right: 5.3%;
+  top: 0px;
+  width: 40px;
+  height: 40px;
+}
+.c-comment1
+{
+  /* position: absolute;
+  top: 20px;*/
+  width: 60%; 
+  text-align: justify;
+  text-align-last:left ;
+  margin-left: 10%;
+  font-family: PingFangSC-Regular;
+  font-size:14px;
+  color: #ff0000;
+  background-color: #fcfcfc;
+}
+.c-comment2
+{
+  /* position: absolute;
+  top: 20px;*/
+  width: 80%; 
+  margin-left:10%;
+  text-align: justify;
+  text-align-last:left ;
+  font-family: PingFangSC-Regular;
+  font-size:14px;
+  color: #000;
+  background-color: #fcfcfc;
+}
+.block
+{
+  background-color: #ededed;
+  height:20px ;
+  color: #297ddd;
+  font-family: PingFangSC-Regular;
+  font-size:14px;
+}
 
 </style>
 
