@@ -1,15 +1,29 @@
 <script>
 import { ref } from 'vue';
+import { useStore } from 'vuex';
 import NavBarBefore from './NavBarBefore.vue';
+import { useRouter } from 'vue-router';
 export default {
-  components:{
-     NavBarBefore
-  },
   setup() {
+    const store = useStore();
     const username = ref('');
     const password = ref('');
-    const onSubmit = (values) => {
-      console.log('submit', values);
+    const router = useRouter();
+    const onSubmit = async () => {
+      const { success, message } = await store.dispatch('login', {
+        username: username.value,
+        password: password.value,
+      });
+
+      if (success) {
+        console.log('Login successful');
+        router.push('/personal');
+        // Optionally, redirect user or perform other actions on success
+      } else {
+        console.error('Login failed:', message);
+        alert('登陆失败')
+        // Handle login failure (e.g., display error message)
+      }
     };
 
     return {
@@ -18,16 +32,8 @@ export default {
       onSubmit,
     };
   },
-  methods:{
-    Login(){
-      this.$store.commit('Login')
-    }
-  }
 };
 </script>
-<style scoped>
-
-</style>
 <template>
 <van-form @submit="onSubmit">
   <NavBarBefore title="登录"></NavBarBefore>

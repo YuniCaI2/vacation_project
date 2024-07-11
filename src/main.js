@@ -11,6 +11,11 @@ import { Image as VanImage } from 'vant';
 import store from "./store"
 const app = createApp(App)/*创建应用实例 */
 // 将 store 实例作为插件安装
+import axios from 'axios';
+
+
+
+
 app.use(store)
 app.use(router)
 app.use(Tab);

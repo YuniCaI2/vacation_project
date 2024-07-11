@@ -8,7 +8,7 @@
             round
             width="10rem"
             height="10rem"
-            src="https://fastly.jsdelivr.net/npm/@vant/assets/icon-demo.png"
+            :src="user_img"
         />
         </div>
         <div style="height: 85px;"></div>
@@ -82,19 +82,35 @@
 </template>
 <script>
 import { useStore } from 'vuex';
-
+import {ref} from 'vue';
+import axios from 'axios';
 export default {
   setup() {
     // 使用 useStore 钩子来访问 Vuex store
     const store = useStore();
-
+    const user_img = ref('');
     // 从 store 中获取你需要的状态值
     const iflogin = store.state.iflogin?true:false;
     console.log(iflogin)
+    if (iflogin)
+  {
+    user_img.value = '/api/user_image';
+
+    // axios.get('/api/user_image',{
+    //     withCredentials: true
+    // })
+    //     .then(response =>{
+    //         user_img.value = '/api/user_image';
+    //     })
+    //     .catch(error =>{
+    //         console.error('Error fetch image',error);
+    //     })
+  }
     // 返回组件的数据对象
     return {
       // 你可以在这里使用 iflogin 作为组件的数据属性
-      iflogin
+      iflogin,
+      user_img
     };
   },
   // 你可以在这里定义其他选项，如 methods、computed、watch 等
