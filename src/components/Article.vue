@@ -5,7 +5,8 @@ import { ref, reactive, toRef } from 'vue';
 export default {
   setup() {
     const items = ref([]);
-    const iflike = 0;
+    const iflike = ref('');
+    iflike.value = 0;
     axios.get('/api/get_reaction')
       .then((res) => {
         items.value = res.data;
@@ -18,14 +19,14 @@ export default {
             '/api/change_liked',
              {
         username : item.username,
-        iflike : iflike
+        iflike : iflike.value
     }
         ).catch(
             (res) =>{
                 console.error({'error': res.error})
             }
         )
-        iflike = ! iflike
+        iflike.value = ! iflike.value
     }
     
 
