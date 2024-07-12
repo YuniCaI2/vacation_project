@@ -70,9 +70,10 @@ const router = createRouter({
       component:Others
     },
     {
-      path:'/articledetail',
+      path:'/articledetail/:id',
       name:'articledetail',
-      component:ArtticleDetailPages
+      component:ArtticleDetailPages,
+      props: true
     },
     {
       path:'/bookdetail',
