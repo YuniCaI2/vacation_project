@@ -15,10 +15,10 @@ export default {
     }
   },
     mounted() {
-    axios.get('https://www.imooc.com/api/mall-wepApp/index/product?icode=J3D67CF17D9F652C7')
+    axios.get('/api/get_reaction')
         .then(res => {
 // console.log(res.data)
-            this.items = res.data.data
+            this.items = res.data
 // console.log(this.items)
         })
         .catch(err => {
@@ -34,7 +34,7 @@ export default {
         <ul>
             <router-link to="articledetail">
             <li v-for="(item,index) in items" :key="index" class="imgli">
-                <img :src="item.url" class="productimg">
+                <img :src="item.filename" class="productimg">
                 
             <div class="userbox">
                 <div class="userbox-radius">
@@ -42,10 +42,10 @@ export default {
                 round
                 width="2rem"
                 height="2rem"
-                src="https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg"
+                :src="item.user_img"
                 class="userimg"
                 />
-                <p class="username">LoveTRY4545465465</p>
+                <p class="username">{{item.username}}</p>
                 <div class="user-like">
                     <p class="user-like-text">关注+</p>
                 </div>
