@@ -3,11 +3,14 @@
 <SearchBar></SearchBar>
 <Swipe></Swipe>
 </div>
+<DownMenu></DownMenu>
 <div class="box21">
     <div class="container">
         <ul class="box22">
             <li v-for="(item,index) in items" :key="index" class="imgli">
+                <RouterLink to="/bookdetail">
                 <img :src="item.url" class="productimg">
+                </RouterLink>
                 <p class="title">{{ item.title }}</p>
                 <img 
                 v-if="iflike==false"
@@ -31,12 +34,15 @@ import NavBarBefore from './NavBarBefore.vue';
 import SearchBar from './SearchBar.vue';
 import Swipe from './Swipe.vue';
 import axios from 'axios'
+import { RouterLink } from 'vue-router';
+import DownMenu from './DownMenu.vue'
 
 export default{
     components:{
         NavBarBefore,
         SearchBar,
-        Swipe
+        Swipe,
+        DownMenu
     },
 
     data() {

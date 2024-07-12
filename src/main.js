@@ -3,7 +3,7 @@ import './assets/main.css'
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
-import {Tabbar,TabbarItem,Tab,Tabs,Search,Form, Field, CellGroup, NavBar,Uploader,Icon,Divider,Notify,Cell,Button,Swipe, SwipeItem} from 'vant'
+import {Tabbar,TabbarItem,Tab,Tabs,Search,Form, Field, CellGroup, NavBar,Uploader,Icon,Divider,Notify,Cell,Button,Swipe, SwipeItem,TextEllipsis,Rate,DropdownMenu, DropdownItem} from 'vant'
 
 import 'vant/lib/index.css'
 import { Image as VanImage } from 'vant';
@@ -36,4 +36,8 @@ app.use(Notify);
 app.use(Cell)
 app.use(Swipe)
 app.use(SwipeItem)
+app.use(TextEllipsis)
+app.use(Rate)
+app.use(DropdownItem)
+app.use(DropdownMenu)
 app.mount('#app')
