@@ -30,7 +30,7 @@
                     :src="'/api/get_others_image/'+items[1].username"
                     class="user"
                     />
-             <div class="username">L{{items[1].username}}</div>
+             <div class="username">{{items[1].username}}</div>
              <div class="like"><img src="../photo-list/爱心0.png" class="icon-img"></div>
              <p class="likenum">{{ items[1].liked }}</p>
         </div>

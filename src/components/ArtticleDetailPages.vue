@@ -59,12 +59,12 @@ export default {
   <share></share>
   <div class="box">
     <div class="user">
-      <RouterLink to="/others">
+      <RouterLink :to="'/others/'+item.username">
       <van-image
                 round
                 width="120px"
                 height="120px"
-                src="https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg"
+                :src= "'/api/get_others_image/' + item.username"
                 />
       </RouterLink>
     </div>

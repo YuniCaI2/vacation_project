@@ -5,14 +5,14 @@
             <div class="box1-icon1"><van-icon name="search" size="32px" color="#7e7e7e"/></div>
             <div class="box1-icon2"><van-icon name="ellipsis" size="32px" color="#7e7e7e"/></div>
             <div class="box1-icon3"><van-icon name="arrow-left" size="32px" color="#7e7e7e" @click="return1"/></div>
-            <div class="box1-username">LoveTRY4545465465</div>
+            <div class="box1-username">{{item.username}}</div>
             
                 <div class="user" >
                     <van-image
                     round
                     width="120px"
                     height="120px"
-                    src="https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg"
+                    :src=item.user_img
                     />
                 </div>
                 <div class="sexicon">
@@ -27,15 +27,15 @@
             <div class="box1-info">
                 <div class="info-text">
                     <div class="textbox">
-                        <p class="textbox-num">8888</p>
+                        <p class="textbox-num">{{ item.liked }}</p>
                         <p class="textbox-text">获赞 </p>
                     </div>
                     <div class="textbox">
-                        <p class="textbox-num">93</p>
+                        <p class="textbox-num">{{ item.following_count }}</p>
                         <p class="textbox-text">粉丝</p>
                     </div>
                     <div class="textbox">
-                        <p class="textbox-num">5</p>
+                        <p class="textbox-num">{{ item.follwers_count }}</p>
                         <p class="textbox-text">关注 </p>
                     </div>
     
@@ -57,14 +57,37 @@
     </div>
     </template>
     <script>
-    export default {
-    setup() {
+   import axios from 'axios';
+import { ref } from 'vue'; // 引入 ref
+
+export default {
+  props: {
+    name: {
+      type: String, // 注意 type 的大写
+      required: true
+    }
+  },
+  setup(props) {
+    const item = ref(null); // 初始化为 null 或适当的初始值
     const return1 = () => history.back();
+
+    axios.get('/api/get_user_detail/' + props.name)
+      .then((res) => {
+        // 可能需要进一步的数据处理，例如检查 res.data 的结构是否符合预期
+        item.value = res.data;
+      })
+      .catch((error) => {
+        console.error('Error fetching user detail:', error);
+        // 可以根据具体情况处理错误，例如显示错误信息给用户
+      });
+
     return {
-      return1
+      return1,
+      item // 返回 ref 对象
     };
   }
 };
+
     </script>
     <style scoped>
     .badge-icon {

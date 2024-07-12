@@ -66,9 +66,10 @@ const router = createRouter({
       component:Admiration
     },
     {
-      path:'/others',
+      path:'/others/:name',
       name:'others',
-      component:Others
+      component:Others,
+      props:true
     },
     {
       path:'/articledetail/:id',
