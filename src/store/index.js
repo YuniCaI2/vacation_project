@@ -15,7 +15,8 @@ const store = createStore({
     logout(state) {
       state.user = null;
       state.iflogin = 0;
-    }
+    },
+
   },
   actions: {
     async login({ commit }, { username, password }) {

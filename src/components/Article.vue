@@ -1,71 +1,82 @@
 <script>
-import axios from 'axios'
-export default { 
-    data() {
-        return {
-            iflike:false,
-            items: []
-               }
-    },
-    methods: {
-    toggleLikeStatus(iflike) {
-      // 切换 like 状态
-      this.iflike=!this.iflike
-      // 这里可以添加代码来处理实际的喜欢/取消喜欢的逻辑
-    }
-  },
-    mounted() {
+import axios from 'axios';
+import { ref, reactive, toRef } from 'vue';
+
+export default {
+  setup() {
+    const items = ref([]);
+    const iflike = 0;
     axios.get('/api/get_reaction')
-        .then(res => {
-// console.log(res.data)
-            this.items = res.data
-// console.log(this.items)
-        })
-        .catch(err => {
-            console.error(err);
-        })
-    }, 
-}
+      .then((res) => {
+        items.value = res.data;
+      })
+      .catch((error) => {
+        console.error({"error": error});
+      });
+    const handleClick = async(item)  => {
+        axios.post(
+            '/api/change_liked',
+             {
+        username : item.username,
+        iflike : iflike
+    }
+        ).catch(
+            (res) =>{
+                console.error({'error': res.error})
+            }
+        )
+        iflike = ! iflike
+    }
+    
+
+    return {
+      items,
+      iflike,
+      handleClick
+    };
+  }
+};
 </script>
 
-
 <template>
-    <div class="container">
-        <ul>
-            <router-link to="articledetail">
-            <li v-for="(item,index) in items" :key="index" class="imgli">
-                <img :src="item.filename" class="productimg">
-                
-            <div class="userbox">
-                <div class="userbox-radius">
-                <van-image
+  <div class="container">
+    <ul>
+      <li v-for="(item, index) in items" :key="index" class="imgli">
+        <router-link :to="'/articledetail/' + item.id"> <!-- Adjust router link as per your route -->
+          <img :src="item.filename" class="productimg">
+          <div class="userbox">
+            <div class="userbox-radius">
+              <van-image
                 round
                 width="2rem"
                 height="2rem"
                 :src="item.user_img"
                 class="userimg"
-                />
-                <p class="username">{{item.username}}</p>
-                <div class="user-like">
-                    <p class="user-like-text">关注+</p>
-                </div>
-                </div>
-                <div>
-                    <img 
-                v-if="iflike==false"
-                src="../photo-list/爱心.png" class="imglike"
-                @click="toggleLikeStatus(iflike)">
-                
-                <img 
-                v-if="iflike==true"
-                src="../photo-list/爱心0.png" class="imglike"
-                @click="toggleLikeStatus(iflike)">
-                </div>
+              />
+              <p class="username">{{ item.username }}</p>
+              <div class="user-like">
+                <p class="user-like-text">关注+</p>
+              </div>
             </div>
-            </li>
+            <div>
+              <img
+                v-if="!iflike"
+                src="../photo-list/爱心.png"
+                class="imglike"
+                @click="handleClick(item)"
+              />
+              <img
+                v-else
+                src="../photo-list/爱心0.png"
+                class="imglike"
+                @click="handleClick(item)"
+              />
+            </div>
+          </div>
         </router-link>
-        </ul>
-    </div>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <style>
