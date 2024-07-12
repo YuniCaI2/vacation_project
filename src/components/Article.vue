@@ -43,7 +43,7 @@ export default {
   <div class="container">
     <ul>
       <li v-for="(item, index) in items" :key="index" class="imgli">
-        <router-link :to="'/articledetail/' + item.id"> <!-- Adjust router link as per your route -->
+        <router-link :to="'/articledetail/'"> 
           <img :src="item.filename" class="productimg">
           <div class="userbox">
             <div class="userbox-radius">
