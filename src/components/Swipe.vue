@@ -13,7 +13,9 @@ export default {
   setup() {
     const images = [
       '../src/photo-list/swipe1.png',
-      'https://fastly.jsdelivr.net/npm/@vant/assets/apple-2.jpeg',
+      '../src/photo-list/book2.jpg',
+      '../src/photo-list/book3.jpg',
+      '../src/photo-list/book4.jpg',
     ];
     return { images };
   },

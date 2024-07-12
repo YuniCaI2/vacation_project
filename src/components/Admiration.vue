@@ -3,8 +3,8 @@
 <SearchBar></SearchBar>
 <Swipe></Swipe>
 </div>
-<DownMenu></DownMenu>
-<div class="box21">
+<labelbook></labelbook>
+<!-- <div class="box21">
     <div class="container">
         <ul class="box22">
             <li v-for="(item,index) in items" :key="index" class="imgli">
@@ -25,7 +25,7 @@
             </li>
         </ul>
     </div>
-</div>
+</div> -->
 </template>
 
 <script>
@@ -35,14 +35,15 @@ import SearchBar from './SearchBar.vue';
 import Swipe from './Swipe.vue';
 import axios from 'axios'
 import { RouterLink } from 'vue-router';
-import DownMenu from './DownMenu.vue'
+import Labelbook from './Labelbook.vue'
 
 export default{
     components:{
         NavBarBefore,
         SearchBar,
         Swipe,
-        DownMenu
+        Labelbook
+
     },
 
     data() {

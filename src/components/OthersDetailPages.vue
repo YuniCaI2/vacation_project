@@ -4,7 +4,7 @@
             <img src="../Cover@3x.png" class="box1-img">
             <div class="box1-icon1"><van-icon name="search" size="32px" color="#7e7e7e"/></div>
             <div class="box1-icon2"><van-icon name="ellipsis" size="32px" color="#7e7e7e"/></div>
-            <div class="box1-icon3"><van-icon name="arrow-left" size="32px" color="#7e7e7e"/></div>
+            <div class="box1-icon3"><van-icon name="arrow-left" size="32px" color="#7e7e7e" @click="return1"/></div>
             <div class="box1-username">LoveTRY4545465465</div>
             
                 <div class="user" >
@@ -57,7 +57,14 @@
     </div>
     </template>
     <script>
-    
+    export default {
+    setup() {
+    const return1 = () => history.back();
+    return {
+      return1
+    };
+  }
+};
     </script>
     <style scoped>
     .badge-icon {
@@ -65,8 +72,6 @@
       font-size: 10px;
       line-height: 16px;
     }
-    
-    
     .box{
         position: relative;
         height: 300px;
