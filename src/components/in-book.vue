@@ -3,10 +3,10 @@
         <div class="container">
             <ul class="box22">
                 <li v-for="(item,index) in items" :key="index" class="imgli">
-                    <RouterLink to="/bookdetail">
-                    <img :src="item.url" class="productimg">
+                    <RouterLink :to="'/bookdetail/'+item.id">
+                    <img :src="item.book_cover" class="productimg">
                     </RouterLink>
-                    <p class="title">{{ item.title }}</p>
+                    <p class="title">{{ item.book_name}}</p>
                     <img 
                     v-if="iflike==false"
                     src="../photo-list/爱心.png" class="img1"
@@ -34,7 +34,6 @@
         data() {
             return {
                 iflike:false,
-                items: []
                    }
         },
        
@@ -45,18 +44,18 @@
           // 这里可以添加代码来处理实际的喜欢/取消喜欢的逻辑
         }
       },
-        mounted() {
-    
-        axios.get('https://www.imooc.com/api/mall-wepApp/index/product?icode=J3D67CF17D9F652C7')
-            .then(res => {
-    // console.log(res.data)
-                this.items = res.data.data
-    // console.log(this.items)
-            })
-            .catch(err => {
+        setup(){
+            const items = ref("");
+            axios.get('/api/get_not_foreign_book')
+            .then(res =>{
+                items.value=res.data
+            }).catch(err => {
                 console.error(err);
             })
-        }, 
+            return {
+                items
+            }
+        }
     }
     
     
