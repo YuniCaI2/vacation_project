@@ -32,7 +32,7 @@ export default {
     </template>
   </van-tabbar-item>
   
-  <van-tabbar-item to="/others">
+  <van-tabbar-item to="/charts">
     <span>排行榜</span>
     <template #icon="props">
       <img :src="props.active ? icon.cup2 : icon.cup1" />
