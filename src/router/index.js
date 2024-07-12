@@ -10,6 +10,7 @@ import Admiration from '@/components/Admiration.vue'
 import Others from '../components/OthersDetailPages.vue'
 import ArtticleDetailPages from '@/components/ArtticleDetailPages.vue'
 import BookDtail from '../components/BookDetailPages.vue'
+import chart from '../components/charts.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -76,8 +77,13 @@ const router = createRouter({
     },
     {
       path:'/bookdetail',
-      name:'/bookdetail',
+      name:'bookdetail',
       component:BookDtail
+    },
+    {
+      path:'/charts',
+      name:'charts',
+      component:chart
     },
   ]
 })
