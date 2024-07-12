@@ -9,9 +9,8 @@ export default {
       cup2:'../src/photo-list/奖杯1.png',
       pen1:'../src/photo-list/羽毛笔.png',
       pen2:'../src/photo-list/羽毛笔1.png',
-      active: 'https://fastly.jsdelivr.net/npm/@vant/assets/user-active.png',
-      inactive:
-        'https://fastly.jsdelivr.net/npm/@vant/assets/user-inactive.png',
+      active: 'records-o',
+      inactive:'edit',
     };
     return {
       icon,
@@ -38,11 +37,8 @@ export default {
       <img :src="props.active ? icon.cup2 : icon.cup1" />
     </template>
   </van-tabbar-item>
-  <van-tabbar-item badge="3">
-    <span>好友</span>
-    <template #icon="props">
-      <img :src="props.active ? icon.active : icon.inactive" />
-    </template>
+  <van-tabbar-item icon="records-o" to="/start">
+    <span>挑战</span>
   </van-tabbar-item>
   <van-tabbar-item icon="contact-o" to="/personal">我的</van-tabbar-item>
 </van-tabbar>

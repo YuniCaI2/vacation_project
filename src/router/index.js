@@ -11,6 +11,8 @@ import Others from '../components/OthersDetailPages.vue'
 import ArtticleDetailPages from '@/components/ArtticleDetailPages.vue'
 import BookDtail from '../components/BookDetailPages.vue'
 import chart from '../components/charts.vue'
+import start from '../components/StartChallenge.vue'
+import challenge from '../components/Challenge.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -88,6 +90,17 @@ const router = createRouter({
       name:'charts',
       component:chart
     },
+    {
+      path:'/start',
+      name:'start',
+      component:start
+    },
+    {
+      path:'/challenge',
+      name:'challenge',
+      component:challenge
+
+    }
   ]
 })
 
