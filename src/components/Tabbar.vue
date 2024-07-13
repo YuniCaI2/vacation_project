@@ -5,10 +5,10 @@ export default {
   setup() {
     const active = ref(0);
     const icon = {
-      cup1:'../src/photo-list/奖杯.png',
-      cup2:'../src/photo-list/奖杯1.png',
-      pen1:'../src/photo-list/羽毛笔.png',
-      pen2:'../src/photo-list/羽毛笔1.png',
+      cup1:'../src/photo-list/cup.png',
+      cup2:'../src/photo-list/cup1.png',
+      pen1:'../src/photo-list/pen.png',
+      pen2:'../src/photo-list/pen1.png',
       active: 'records-o',
       inactive:'edit',
     };

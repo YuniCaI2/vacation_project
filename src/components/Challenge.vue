@@ -2,7 +2,7 @@
     
 <div class="box1">
     <share></share>
-    <img src="../photo-list/背景.jpg" class="img">
+    <img src="../photo-list/back.jpg" class="img">
     <div class="answerbox">
         <div class="title"><p >第1题</p></div>
         <van-divider />

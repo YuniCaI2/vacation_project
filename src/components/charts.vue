@@ -4,7 +4,7 @@
     <van-divider />
     <!-- 前三循环 -->
      <div class="box-3" v-if="items.length > 0">
-        <div class="icon"><img src="../photo-list/第一.png" class="icon-img"></div>
+        <div class="icon"><img src="../photo-list/first.png" class="icon-img"></div>
         <div class="userbox">
             <van-image
                     round
@@ -14,14 +14,14 @@
                     class="user"
                     />
              <div class="username">{{ items[0].username }}</div>
-             <div class="like"><img src="../photo-list/爱心0.png" class="icon-img"></div>
+             <div class="like"><img src="../photo-list/like0.png" class="icon-img"></div>
              <p class="likenum">{{ items[0].liked }}</p>
         </div>
      </div>
      <van-divider v-if="items.length > 0" />
     
      <div class="box-3" v-if="items.length > 1">
-        <div class="icon"><img src="../photo-list/第二.png" class="icon-img"></div>
+        <div class="icon"><img src="../photo-list/second.png" class="icon-img"></div>
         <div class="userbox">
             <van-image
                     round
@@ -31,14 +31,14 @@
                     class="user"
                     />
              <div class="username">{{items[1].username}}</div>
-             <div class="like"><img src="../photo-list/爱心0.png" class="icon-img"></div>
+             <div class="like"><img src="../photo-list/like0.png" class="icon-img"></div>
              <p class="likenum">{{ items[1].liked }}</p>
         </div>
      </div>
      <van-divider v-if="items.length > 1" />
     
      <div class="box-3" v-if="items.length > 2">
-        <div class="icon"><img src="../photo-list/第三.png" class="icon-img"></div>
+        <div class="icon"><img src="../photo-list/third.png" class="icon-img"></div>
         <div class="userbox">
             <van-image
                     round
@@ -48,7 +48,7 @@
                     class="user"
                     />
              <div class="username">{{ items[2].username}}</div>
-             <div class="like"><img src="../photo-list/爱心0.png" class="icon-img"></div>
+             <div class="like"><img src="../photo-list/like0.png" class="icon-img"></div>
              <p class="likenum">{{ items[2].liked }}</p>
         </div>
      </div>

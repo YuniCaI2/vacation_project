@@ -1,6 +1,6 @@
 <template>
 <div class="box1">
-    <img src="../photo-list/背景.jpg">
+    <img src="../photo-list/back.jpg">
     <van-button type="danger" round size="large" class="button" to="/challenge">
   <van-swipe
     vertical

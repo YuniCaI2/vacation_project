@@ -45,6 +45,7 @@ export default {
       <li v-for="(item, index) in items" :key="index" class="imgli">
         <router-link :to="'/articledetail/'+item.id"> 
           <img :src="item.filename" class="productimg">
+        </router-link>
           <div class="userbox">
             <div class="userbox-radius">
               <van-image
@@ -62,19 +63,19 @@ export default {
             <div>
               <img
                 v-if="!iflike"
-                src="../photo-list/爱心.png"
+                src="../photo-list/like.png"
                 class="imglike"
                 @click="handleClick(item)"
               />
               <img
                 v-else
-                src="../photo-list/爱心0.png"
+                src="../photo-list/like0.png"
                 class="imglike"
                 @click="handleClick(item)"
               />
             </div>
           </div>
-        </router-link>
+        
       </li>
     </ul>
   </div>

@@ -18,9 +18,8 @@
 
         <SearchBar v-show="isSearchBarVisible" ></SearchBar>
 
-        <!-- <img src="../photo-list/老师.png" class="top-icon"> -->
         <LabelBar label_1="文章" label_2="发布"  ></LabelBar>
-        <!-- <div class="top-icon"  @click="toggleSearchBar"><van-icon name="search" size="44" /></div> -->
+
 
  
     </header>

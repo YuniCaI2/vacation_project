@@ -72,22 +72,22 @@ export default {
     <div class="icon">
                 <img 
                 v-if="iflike==false"
-                src="../photo-list/爱心.png" class="icon1"
+                src="../photo-list/like.png" class="icon1"
                 @click="toggleLikeStatus1(iflike)">
                 
                 <img 
                 v-if="iflike==true"
-                src="../photo-list/爱心0.png" class="icon1"
+                src="../photo-list/like0.png" class="icon1"
                 @click="toggleLikeStatus1(iflike)">
                
                 <img 
                 v-if="ifcollect==false"
-                src="../photo-list/收藏.png" class="icon2"
+                src="../photo-list/add.png" class="icon2"
                 @click="toggleLikeStatus2(ifcollect)">
                 
                 <img 
                 v-if="ifcollect==true"
-                src="../photo-list/收藏0.png" class="icon2"
+                src="../photo-list/add0.png" class="icon2"
                 @click="toggleLikeStatus2(ifcollect)">
     </div>
    
@@ -122,7 +122,7 @@ export default {
   />
     <div class="c-username">猫老师</div>
     </div>
-    <img src="../photo-list/100分.png"  class="c-pi">
+    <img src="../photo-list/100.png"  class="c-pi">
   <div class="c-comment1">写得很棒，继续保持！</div>
   <van-divider />
   </div>
@@ -140,7 +140,6 @@ export default {
   />
     <div class="c-username">猫老师</div>
     </div>
-    <img src="../photo-list/100分.png"  class="c-pi">
   <div class="c-comment2" style="color: #000">写得很棒，继续保持！写得很棒，继续保持！写得很棒，继续保持！写得很棒，继续保持！写得很棒，继续保持！写得很棒，继续保持！写得很棒，继续保持！</div>
   <van-divider />
  </div>

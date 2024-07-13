@@ -20,7 +20,7 @@
                     round
                     width="32px"
                     height="32px"
-                    src="../src/photo-list/男.png"
+                    src="../src/photo-list/man.png"
                     />
                 </div>
             
@@ -42,7 +42,7 @@
                 </div>
                 <div class="info-achievement">
                    <div class="info-achievement-icon">
-                    <van-icon name="../src/photo-list/勋章.png" size="32"color="#f2f3f5"/>
+                    <van-icon name="../src/photo-list/medal.png" size="32"color="#f2f3f5"/>
                    </div>
                    <div class="info-achievement-text">他的成就></div>
                    <div class="user-like">
